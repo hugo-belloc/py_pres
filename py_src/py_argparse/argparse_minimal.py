@@ -1,7 +1,9 @@
 import argparse
 
+
 def main(args=None):
-    parser = argparse.ArgumentParser(description="Exemple de parseur ligne de commande")
+    desc = "Exemple de parseur ligne de commande"
+    parser = argparse.ArgumentParser(description=desc)
     parser.add_argument("positional_arg")
     parser.add_argument("-o", "--optional-arg")
     args = parser.parse_args(args)

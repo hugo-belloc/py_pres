@@ -3,20 +3,16 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[frenchb]{babel}
-\usepackage{minted}
+\usepackage{minted} % For python code inclusion
+\usepackage{tcolorbox}
 \usepackage{default}
 
-% Minimise python code
-%\newminted{python}{fontsize=\footnotesize}
 
-\usetheme{Warsaw}
-\hypersetup{pdfpagemode=FullScreen}
 
-\title[Le module argparse]{Créer des interfaces ligne de commande avec arguments en Python}
-\author{Hugo Belloc}
-\date{\today}
+\definecolor{ttybg}{RGB}{48,10,36}
+\definecolor{ttyfg}{RGB}{255,241,200}
 
-% Insert frame number
+% Insert slide number
 \addtobeamertemplate{navigation symbols}{}{%
     \usebeamerfont{footline}%
     \usebeamercolor[fg]{footline}%
@@ -24,14 +20,15 @@
     \insertframenumber/\inserttotalframenumber
 }
 
+    
+% Configure beamer
+\usetheme{Warsaw}
+\hypersetup{pdfpagemode=FullScreen}
+\title[Le module argparse]{Créer des interfaces ligne de commande avec arguments en Python}
+\author{Hugo Belloc}
+\date{\today}
 
 \begin{document}
-
-\newmintedfile{python}{
-  linenos=true,
-  fontsize=\fontsize{5}{6},
-}
-
 
 \begin{frame}
  \titlepage
@@ -57,20 +54,67 @@
 % 
 % \subsection{Pourquoi utiliser les interfaces lignes de commande avec argument ?}
 % 
-% \subsection{Comment faire en Python?}
+% \subsection{Le module argparse}
 
-\section{Exemple}
+\section{Les bases - analyse d'un exemple minimal}
+\subsection{Le code}
+
 \begin{frame}
  \frametitle{Code minimal}
- 
- Mon code:
-  
-\inputminted[linenos=true, fontsize=\fontsize{7}{8}]{python}{py_src/py_argparse/argparse_minimal.py}
+   
+\inputminted[fontsize=\fontsize{8}{9}]{python}{py_src/py_argparse/argparse_minimal.py}
 
 \end{frame}
 
+\subsection{Explications}
 
+\begin{frame}
+ \frametitle{Explication rapide}
+   
+\inputminted[linenos=true, fontsize=\fontsize{3}{4}, frame=single]{python}{py_src/py_argparse/argparse_minimal.py}
 
+\begin{description}
+ \item[Ligne 6] Définition du parseur
+ \item[Lignes 7-8] Définition des arguments à lire
+ \item[Ligne 9] Analyse de la ligne de commande
+ \item[Lignes 10-11] Utilisation des arguments extraits
+\end{description}
+
+\end{frame}
+
+\subsection{Utilisation}
+
+\begin{frame}[fragile]
+ \frametitle{Affichage de l'aide}
+ 
+  \begin{tcolorbox}[width=\textwidth,colback={ttybg},title={Console}, colupper=ttyfg]
+  \begin{scriptsize}
+
+  \begin{verbatim}
+  $ python argparse_minimal.py --help
+  usage: argparse_minimal.py [-h] [-o OPTIONAL_ARG] positional_arg
+
+  Exemple de parseur ligne de commande
+
+  positional arguments:
+    positional_arg
+
+  optional arguments:
+    -h, --help            show this help message and exit
+    -o OPTIONAL_ARG, --optional-arg OPTIONAL_ARG
+
+  > Process finished with exit code 0 
+
+  \end{verbatim}
+  \end{scriptsize}
+  
+ \end{tcolorbox}
+
+\end{frame}
+
+\section{Notions avancées}
+
+\section{Pour aller plus loin}
 
 
 \end{document}

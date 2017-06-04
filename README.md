@@ -1,6 +1,6 @@
 # py_pres
 
-Presentation sur python. (Presentation about python in french)
+Présentation sur python. (Presentation about python in french)
 
 ## Outils utlisés pour réaliser les présentation:
 - Latex (Beamer)
@@ -10,5 +10,9 @@ Presentation sur python. (Presentation about python in french)
 - Environnement python: python-3.4+
 
 ## Sommaire:
+- py_argparse.tex: Créer des interfaces ligne de commande avec argument / le module argparse.
 
-- py_argparse: Créer des interfaces ligne de commande avec argument / le module argparse.
+## Environnement nécessaire pour la compilation \Latex
+- Paquet nécessaires:
+  * minted 
+  * tcolorbox
