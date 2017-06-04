@@ -1,5 +1,5 @@
 SRC=$(wildcard *.tex)
-OPTS=--pdf
+OPTS=--pdf --unsafe -c 'setlist arguments -shell-escape'
 
 .PHONY: clean read
 
